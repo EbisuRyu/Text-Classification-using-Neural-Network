@@ -2,9 +2,9 @@
 TRAIN_DIR = './data/data_train/train'
 VALID_DIR = './data/data_train/test'
 TEST_DIR = './data/data_test/test'
-SAVE_PATH = './model'
-
-VOCAB_SIZE = 30000
+MODEL_SAVE_PATH = './model'
+VOCAB_SAVE_PATH = './vocab'
+VOCAB_SIZE = 20000
 SAVE_EPOCH = 5
 LOG_INTERVAL = 2
 BATCH_SIZE = 64

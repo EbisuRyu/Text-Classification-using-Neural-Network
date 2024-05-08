@@ -82,7 +82,7 @@ class Trainer():
             self.saver.save(epoch, model, train_loss)
             if epoch % self.log_interval == 0:
                 print("-" * 80)
-                print("| End of epoch: {:3d} | Train Accuracy: {:8.3f} | Train Loss: {:8.3f}".format(epoch, train_acc, train_loss))
+                print("| End of epoch: {:3d} | Train Accuracy: {:8.3f} | Train Loss: {:8.3f} |".format(epoch, train_acc, train_loss))
         self.saver.save_best()
         return model
     
@@ -99,4 +99,4 @@ class Trainer():
                 total_count += label.size(0)
                 total_loss += loss.item()
             test_loss, test_acc = total_loss / len(test_dataloader), total_acc / total_count
-            print("Test Accuracy: {:8.3f} | Test Loss: {:8.3f}".format(test_loss, test_acc))
+            print("| Test Accuracy: {:8.3f} | Test Loss: {:8.3f} |".format(test_acc, test_loss))

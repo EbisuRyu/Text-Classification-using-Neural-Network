@@ -2,7 +2,7 @@ import torch.nn as nn
 import torch
 
 class TextClassificationModel(nn.Module):
-    def __init__(self, vocab_size, embed_dim, num_class, hidden_dim=128):
+    def __init__(self, vocab_size, embed_dim, hidden_dim, num_class):
         super(TextClassificationModel, self).__init__()
         self.embedding = nn.EmbeddingBag(vocab_size, embed_dim, mode='sum')
         self.fc = nn.Linear(embed_dim, hidden_dim)
@@ -27,4 +27,5 @@ class TextClassificationModel(nn.Module):
         with torch.no_grad():
             output = self.forward(text, offsets)
             prob = torch.softmax(output, dim=1)
-            return prob, output.argmax(1)
+            label = output.argmax(1)
+            return prob, label
